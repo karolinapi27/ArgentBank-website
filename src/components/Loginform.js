@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../index.css';
 
 const LoginForm = () => {
@@ -21,7 +22,7 @@ const LoginForm = () => {
             <label htmlFor="remember-me">Remember me</label>
           </div>
           {/* Placeholder due to static site */}
-          <a href="./user.html" className="sign-in-button">Sign In</a>
+          <Link to="/user" className="sign-in-button">Sign In</Link>
           {/* Should be the button below */}
           {/* <button className="sign-in-button">Sign In</button> */}
         </form>

@@ -1,32 +1,14 @@
 // src/Pages/ProfilePage.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../index.css';
+import HeaderUser from '../components/HeaderUser';
+import Footer from '../components/Footer';
 
 
 const UserPage = () => {
   return (
     <div>
-      <nav className="main-nav">
-        <Link to="/" className="main-nav-logo">
-          <img
-            className="main-nav-logo-image"
-            src="./img/argentBankLogo.png"
-            alt="Argent Bank Logo"
-          />
-          <h1 className="sr-only">Argent Bank</h1>
-        </Link>
-        <div>
-          <Link to="/user" className="main-nav-item">
-            <i className="fa fa-user-circle"></i>
-            Tony
-          </Link>
-          <Link to="/" className="main-nav-item">
-            <i className="fa fa-sign-out"></i>
-            Sign Out
-          </Link>
-        </div>
-      </nav>
+      <HeaderUser/>
       <main className="main bg-dark">
         <div className="header">
           <h1>Welcome back<br />Tony Jarvis!</h1>
@@ -64,6 +46,7 @@ const UserPage = () => {
           </div>
         </section>
       </main>
+      <Footer/>  
     </div>
   );
 };
