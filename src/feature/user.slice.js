@@ -1,28 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loginUser } from '../services/authService';
 
 export const userAuthSlice = createSlice({
-  name: "userAuth",
+  name: "user",
   initialState: {
-    isLoggedIn: false,
+    loading: false,
     user: null,
     error: null,
   },
-  reducers: {
-    loginUser: (state, action) => {
-      state.isLoggedIn = true;
-      state.user = action.payload;
-      state.error = null;
-    },
-    logoutUser: (state) => {
-      state.isLoggedIn = false;
+  extraReducers:(builder)=>{
+    builder
+    .addCase(loginUser.pending,(state)=>{
+      state.loading = true;
       state.user = null;
       state.error = null;
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
-    },
+    })
+    .addCase(loginUser.fulfilled,(state, action)=>{
+      state.loading = false;
+      state.user = action.payload;
+      state.error = null;
+    })
+    .addCase(loginUser.rejected,(state, action)=>{
+      state.loading = false;
+      state.user = null;
+      console.log(action.error.message);
+      if(action.error.message === 'Request failed with status code 400'){
+        state.error = 'Access Denied Invalid Credentials';
+      }
+      else{
+        state.error = action.error.message;
+      }
+
+      state.error = null;
+    })
+    
   }
 });
 
-export const { loginUser, logoutUser, setError } = userAuthSlice.actions;
+
+export const { logoutUser, setError } = userAuthSlice.actions;
 export default userAuthSlice.reducer;
