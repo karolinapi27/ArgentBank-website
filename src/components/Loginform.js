@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../services/authService';
+import { loginUser, fetchUserProfile } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
 
@@ -31,11 +31,15 @@ const LoginForm = () => {
     dispatch(loginUser(userCredentials)).then((result)=>{
 
       if(result.payload && !result.error){
-        setEmail('');
-        setPassword('');
-        setErrorMessage('');
-        navigate('/user');
 
+        dispatch(fetchUserProfile()).then(() => {
+         
+          setEmail('');
+          setPassword('');
+          setErrorMessage('');
+          navigate('/user');
+        });
+        
       } else {
         setErrorMessage('Access Denied Invalid Credentials');
       } 

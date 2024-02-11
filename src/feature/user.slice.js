@@ -8,6 +8,13 @@ export const userAuthSlice = createSlice({
     user: null,
     error: null,
   },
+  reducers: {  
+    logout: (state) => {
+      state.loading = false;
+      state.user = null;
+      state.error = null;
+    },
+  },
   extraReducers:(builder)=>{
     builder
     .addCase(loginUser.pending,(state)=>{
@@ -23,7 +30,7 @@ export const userAuthSlice = createSlice({
     .addCase(loginUser.rejected,(state, action)=>{
       state.loading = false;
       state.user = null;
-      console.log(action.error.message);
+      
       if(action.error.message === 'Request failed with status code 400'){
         state.error = 'Access Denied Invalid Credentials';
       }
@@ -32,11 +39,12 @@ export const userAuthSlice = createSlice({
       }
 
       state.error = null;
-    })
+    })  
     
   }
 });
 
 
-export const { logoutUser, setError } = userAuthSlice.actions;
+export const { logout } = userAuthSlice.actions;
+
 export default userAuthSlice.reducer;

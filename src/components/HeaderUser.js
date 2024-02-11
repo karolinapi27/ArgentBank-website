@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import LogoutButton from '../components/LogoutButton';
 import '../index.css';
 
 const HeaderUser = () => {
+
+  //useSelector pour accéder à l'état de l'utilisateur
+  const profile = useSelector((state) => state.userProfile.profile);
+  
   return (
     <nav className="main-nav">
         <Link to="/" className="main-nav-logo">
@@ -13,17 +19,15 @@ const HeaderUser = () => {
           />
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
+
         <div>
           <Link to="/user" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
-            Tony
+            {profile ? profile.firstName : "Login"}
           </Link>
-          <Link to="/" className="main-nav-item">
-            <i className="fa fa-sign-out"></i>
-            Sign Out
-          </Link>
+          <LogoutButton />
         </div>
-      </nav>
+    </nav>
   );
 };
 
