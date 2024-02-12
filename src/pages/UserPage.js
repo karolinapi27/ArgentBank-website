@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import HeaderUser from '../components/HeaderUser';
 import EditProfileForm from '../components/EditProfileForm';
+import accountsData from '../data/accountsData';
+import AccountSection from '../components/AccountSection';
 import Footer from '../components/Footer';
-import '../index.css';
-
 
 const UserPage = () => {
 
@@ -15,56 +15,27 @@ const UserPage = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <div>
-      <HeaderUser/>
+    <div className="app-container">
+      <HeaderUser />
      
-        <main className="main bg-dark">
-                {!isEditing ? (
-                    <div className="header">
-                        <h1>Welcome back<br />{profile ? `${profile.firstName} ${profile.lastName}` : "User"}</h1>
-                        <button className="edit-button" onClick={() => setIsEditing(true)}>Edit Name</button>
-                    </div>
-                ) : (
-                    <EditProfileForm
-                        profile={profile}
-                        onCancel={() => setIsEditing(false)}
-                    />
-                )}
-        
-
-        <h2 className="sr-only">Accounts</h2>
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Checking (x8349)</h3>
-            <p className="account-amount">$2,082.79</p>
-            <p className="account-amount-description">Available Balance</p>
+      <main className="main bg-dark">
+        {!isEditing ? (
+          <div className="header">
+            <h1>Welcome back<br />{profile ? `${profile.firstName} ${profile.lastName}` : "User"}</h1>
+            <button className="edit-button" onClick={() => setIsEditing(true)}>Edit Name</button>
           </div>
-          <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
-          </div>
-        </section>
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Savings (x6712)</h3>
-            <p className="account-amount">$10,928.42</p>
-            <p className="account-amount-description">Available Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
-          </div>
-        </section>
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
-            <p className="account-amount">$184.30</p>
-            <p className="account-amount-description">Current Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
-          </div>
-        </section>
-      </main>
-      <Footer/>  
+        ) : (
+          <EditProfileForm
+            profile={profile}
+            onCancel={() => setIsEditing(false)}
+          />
+        )}
+        <h2 className="sr-only">Accounts</h2>  
+        {accountsData.map(account => (
+          <AccountSection key={account.id} {...account} />
+        ))}
+      </main>  
+      <Footer />
     </div>
   );
 };

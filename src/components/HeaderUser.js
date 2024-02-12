@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../components/LogoutButton';
-import '../index.css';
+
 
 const HeaderUser = () => {
 
@@ -20,13 +20,13 @@ const HeaderUser = () => {
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
 
-        <div>
-          <Link to="/user" className="main-nav-item">
-            <i className="fa fa-user-circle"></i>
-            {profile ? profile.firstName : "Login"}
-          </Link>
-          <LogoutButton />
-        </div>
+      <div className="main-nav-flex">
+        <Link to="/user" className="main-nav-item">
+          <i className="fa fa-user-circle margin"></i>
+          {profile ? profile.firstName : "Login"}
+        </Link>
+        <LogoutButton />
+      </div>
     </nav>
   );
 };

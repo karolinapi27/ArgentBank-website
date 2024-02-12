@@ -58,9 +58,6 @@ export const updateUserProfile = createAsyncThunk(
   }
 );
 
-
-
-
 export const authService = {
   loginUser,
   fetchUserProfile,

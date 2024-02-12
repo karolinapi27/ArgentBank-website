@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css';
+
 
 const Header = () => {
   return (
@@ -16,7 +16,7 @@ const Header = () => {
 
       <div>
       <Link to="/login" className="main-nav-item">
-        <i className="fa fa-user-circle"></i>
+        <i className="fa fa-user-circle margin"></i>
         Sign In
       </Link>
       </div>

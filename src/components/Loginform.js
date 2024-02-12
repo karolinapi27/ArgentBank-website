@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, fetchUserProfile } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
-import '../index.css';
+
 
 const LoginForm = () => {
 
@@ -23,7 +23,6 @@ const LoginForm = () => {
       setErrorMessage('Access Denied Invalid Credentials');
       return;
     }
-
     let userCredentials={
       email,password
     }
@@ -32,8 +31,7 @@ const LoginForm = () => {
 
       if(result.payload && !result.error){
 
-        dispatch(fetchUserProfile()).then(() => {
-         
+        dispatch(fetchUserProfile()).then(() => { 
           setEmail('');
           setPassword('');
           setErrorMessage('');
@@ -55,12 +53,12 @@ const LoginForm = () => {
         <form onSubmit={handleLogin}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
-            <input type="text" id="username" 
+            <input type="text" id="email" autoComplete="email" 
             value={email} onChange={(e) =>setEmail(e.target.value)} />
           </div>
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password"
+            <input type="password" id="password" autoComplete="current-password"
             value={password} onChange={(e) =>setPassword(e.target.value)} />
           </div>
           <div className="input-remember">

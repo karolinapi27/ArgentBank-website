@@ -14,32 +14,47 @@ const EditProfileForm = ({ profile, onCancel }) => {
     };
 
     return (
-       <div>
-        <h1>Edit user info</h1>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <strong>User Name:</strong>
-                <input
-                    type="text"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                />
+        <div className="sign-in-content edit-form">
+          <h1>Edit user info</h1>
+
+          <form onSubmit={handleSubmit}>
+            <div className="input-wrapper-edit">
+              <label htmlFor="userName">User name:</label>
+              <input
+                id="userName"
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
             </div>
-            <div>
-                <strong>First Name:</strong>
-                <span>{profile?.firstName}</span>
+            <div className="input-wrapper-edit">
+              <label htmlFor="firstName">First name:</label>
+              <input
+                id="firstName"
+                type="text"
+                value={profile?.firstName}
+                disabled
+                style={{ backgroundColor: '#f0f0f0' }} 
+              />
             </div>
-            <div>
-                <strong>Last Name:</strong>
-                <span>{profile?.lastName}</span>
+            <div className="input-wrapper-edit">
+              <label htmlFor="lastName">Last name:</label>
+              <input
+                id="lastName"
+                type="text"
+                value={profile?.lastName}
+                disabled
+                style={{ backgroundColor: '#f0f0f0' }} 
+              />
             </div>
             <div className='gap'>
-                <button className='edit-button' type="submit">Save</button>
-                <button className='edit-button' type="button" onClick={onCancel}>Cancel</button>
+              <button className='edit-button edit-form-button' type="submit">Save</button>
+              <button className='edit-button edit-form-button' type="button" onClick={onCancel}>Cancel</button>
             </div>
-        </form>
+          </form>
         </div>
-    );
+      );
+      
 };
 
 export default EditProfileForm;
