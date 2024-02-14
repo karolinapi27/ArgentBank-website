@@ -1,18 +1,29 @@
 // src/components/EditProfileForm.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateUserProfile } from '../services/authService';
-
+import { updateUserProfile, fetchUserProfile } from '../services/authService';
 
 const EditProfileForm = ({ profile, onCancel }) => {
+    
     const [userName, setUserName] = useState(profile?.userName || '');
+    const [showConfirmation, setShowConfirmation] = useState(false);
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(updateUserProfile({ userName }));
-    };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
+      try {
+        await dispatch(updateUserProfile({ userName })).unwrap();
+        dispatch(fetchUserProfile());
+        setShowConfirmation(true); 
+        setTimeout(() => {
+          onCancel(); 
+          setShowConfirmation(false); 
+        }, 1500); 
+      } catch (error) {
+      }
+    };
+    
     return (
         <div className="sign-in-content edit-form">
           <h1>Edit user info</h1>
@@ -51,6 +62,13 @@ const EditProfileForm = ({ profile, onCancel }) => {
               <button className='edit-button edit-form-button' type="submit">Save</button>
               <button className='edit-button edit-form-button' type="button" onClick={onCancel}>Cancel</button>
             </div>
+            {
+              showConfirmation && (
+                <div className="confirmation-message">
+                  Username updated successfully!
+                </div>
+              )
+            }
           </form>
         </div>
       );

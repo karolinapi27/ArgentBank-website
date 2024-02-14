@@ -37,10 +37,8 @@ export const userAuthSlice = createSlice({
       else{
         state.error = action.error.message;
       }
-
       state.error = null;
-    })  
-    
+    })    
   }
 });
 

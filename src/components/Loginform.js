@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, fetchUserProfile } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 
-
 const LoginForm = () => {
 
   // states
@@ -43,7 +42,6 @@ const LoginForm = () => {
       } 
     })
   } 
-
   return (
     <main className="main bg-dark">
       <section className="sign-in-content">

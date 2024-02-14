@@ -32,7 +32,6 @@ export const fetchUserProfile = createAsyncThunk(
       
       
     } catch (error) {
-      console.error("Erreur lors de la récupération du profil :", error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -52,7 +51,6 @@ export const updateUserProfile = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      console.error("Erreur lors de la mise à jour du profil :", error.response.data);
       return rejectWithValue(error.response.data);
     }
   }

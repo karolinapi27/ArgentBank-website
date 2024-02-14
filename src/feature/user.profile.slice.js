@@ -30,7 +30,7 @@ export const userProfileSlice = createSlice({
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      });
+      })   
   },
 });
 

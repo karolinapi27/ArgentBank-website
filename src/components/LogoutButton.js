@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { persistor } from '../app/store';
 
 const LogoutButton = () => {
+    
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
     

@@ -341,3 +341,8 @@ footer {
   justify-content: center;
   gap: 10px;
 }
+
+.confirmation-message {
+  color: #00bc77;
+  margin-top: 10px;
+}
