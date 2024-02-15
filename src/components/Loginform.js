@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser, fetchUserProfile } from '../services/authService';
+import { loginUser, fetchUserProfile } from '../services/ApiService';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {

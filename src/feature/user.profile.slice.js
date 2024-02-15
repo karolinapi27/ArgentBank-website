@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUserProfile } from '../services/authService';
+import { fetchUserProfile } from '../services/ApiService';
 
 export const userProfileSlice = createSlice({
   name: "userProfile",

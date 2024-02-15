@@ -1,7 +1,7 @@
 // src/components/EditProfileForm.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateUserProfile, fetchUserProfile } from '../services/authService';
+import { updateUserProfile, fetchUserProfile } from '../services/ApiService';
 
 const EditProfileForm = ({ profile, onCancel }) => {
     

@@ -13,6 +13,12 @@ body {
   min-height: 100vh;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .main {
   flex: 1;
 }
@@ -70,8 +76,17 @@ body {
   width: 200px;
 }
 
+.main-nav-flex {
+  display: flex;
+  gap: 5px;
+}
+
+.margin {
+  margin-right: 5px;
+}
+
 .hero {
-  background-image: url('../img/bank-tree.jpeg');
+  background-image: url('../public/img/bank-tree.webp');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -163,6 +178,7 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  cursor: pointer;
 }
 
 .sign-in-content {
@@ -202,7 +218,7 @@ body {
   font-size: 1.2rem;
 }
 
-.footer {
+footer {
   display: flex;
   justify-content: center;
   border-top: 2px solid #ccc;
@@ -257,6 +273,31 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  cursor: pointer;
+}
+
+.input-wrapper-edit {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin-bottom: 1rem;
+  gap: 5px;
+}
+
+.input-wrapper-edit input {
+  border-radius: 5px;
+  padding: 2px;
+  width: 115px;
+}
+
+.edit-form {
+  max-width: 310px;
+  margin-bottom: 20px;
+}
+
+.edit-form-button {
+  width: 100px;
+  border-radius: 5px;
 }
 
 .header {
@@ -274,6 +315,7 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  cursor: pointer;
 }
 
 @media (min-width: 720px) {
@@ -288,4 +330,19 @@ body {
   .transaction-button {
     width: 200px;
   }
+}
+
+.alert {
+  color: red;
+}
+
+.gap {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.confirmation-message {
+  color: #00bc77;
+  margin-top: 10px;
 }
