@@ -1,3 +1,16 @@
+## Prerequisites
+
+This project requires Node.js version v17.9.1. To ensure compatibility and to run the project successfully, please use this specific Node.js version. If you do not have this version installed, you can use [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) to install and manage multiple versions of Node.js on the same machine.
+
+### Using NVM to Install Node.js v17.9.1
+
+If you have NVM installed, run the following command to install and use Node.js v17.9.1:
+
+```bash
+nvm install 17.9.1
+nvm use 17.9.1
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
