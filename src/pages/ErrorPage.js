@@ -7,7 +7,11 @@ const ErrorPage = () => {
   return (
   <div>
     <Header/>
-    <p>Erreur</p>
+    <div className="error-container">
+      <h1>404</h1>
+      <p>Oups ! La page que vous cherchez n'existe pas.</p>
+      <a href="/">Retourner à la page d'accueil</a>
+    </div>
     <Footer/>
   </div>
 )};
