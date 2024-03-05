@@ -9,8 +9,8 @@ const ErrorPage = () => {
     <Header/>
     <div className="error-container">
       <h1>404</h1>
-      <p>Oups ! La page que vous cherchez n'existe pas.</p>
-      <a href="/">Retourner à la page d'accueil</a>
+      <p>Oops! The page you are looking for does not exist.</p>
+      <a href="/">Return to the homepage</a>
     </div>
     <Footer/>
   </div>
