@@ -25,7 +25,7 @@ const LoginForm = () => {
     let userCredentials={
       email,password
     }
-
+    // envoie l'action loginUser au store et tente la connexion avec userCredentials
     dispatch(loginUser(userCredentials)).then((result)=>{
 
       if(result.payload && !result.error){

@@ -10,12 +10,16 @@ const EditProfileForm = ({ profile, onCancel }) => {
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
-      e.preventDefault();
+      e.preventDefault(); 
 
       try {
+        //envoie une action pour mettre à jour le profil de l'utilisateur avec le nouveau nom d'utilisateur.
         await dispatch(updateUserProfile({ userName })).unwrap();
+        //Récupération du Profil Mis à Jour
         dispatch(fetchUserProfile());
         setShowConfirmation(true); 
+        //définit un délai de 1,5 seconde après lequel la fonction onCancel est appelée pour fermer le formulaire d'édition, 
+        //et le message de confirmation est caché
         setTimeout(() => {
           onCancel(); 
           setShowConfirmation(false); 

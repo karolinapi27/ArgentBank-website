@@ -23,7 +23,7 @@ const HeaderUser = () => {
       <div className="main-nav-flex">
         <Link to="/user" className="main-nav-item">
           <i className="fa fa-user-circle margin"></i>
-          {profile ? profile.firstName : "Login"}
+          {profile ? profile.userName : "Login"}
         </Link>
         <LogoutButton />
       </div>
